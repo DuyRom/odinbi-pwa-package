@@ -1,7 +1,7 @@
 {
     "name": "odinbi/pwa",
     "description": "odinbi pwa package",
-    "type": "composer-plugin",
+    "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
     "autoload": {
