@@ -15,7 +15,7 @@ composer require odinbi/pwa
 ```
 ## Config
 ```
--- config/octane.php
+-- config/app.php
 Odinbi\Pwa\OdinbiPackageServiceProvider::class,
 
 ```
