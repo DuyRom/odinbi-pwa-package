@@ -16,7 +16,4 @@
         }
     ],
     "require": {},
-    // "require": {
-    //     "codexshaper/laravel-pwa": "^1.2",
-    // },
 }
