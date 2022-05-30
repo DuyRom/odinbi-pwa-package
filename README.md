@@ -1,7 +1,7 @@
 # Description
-Installable PWA for laravel. Implement PWA in your laravel website within 5 mins.
+Installable Odinbi PWA for laravel. Edit based on codexshaper/laravel-pwa
 
-| Lravel PWA version      | Laravel version   |
+| Lavel PWA version      | Laravel version   |
 | ---                     | ---               |
 | 1.0                     | ^5.6, ^6.0, ^7.0  |
 | 1.1                     | ^8.0              |
