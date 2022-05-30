@@ -37,7 +37,7 @@ class OdinbiPWACustomController extends Controller
         }
 
         File::copyDirectory(
-            config('pwa.icons_path', __DIR__.'/../../../resources/icons'),
+            config('pwa.icons_path', __DIR__.'/resources/icons'),
             storage_path('app/public/pwa/images/icons')
         );
 
@@ -491,7 +491,8 @@ REGISTER_SERVICE_WORKER;
      */
     public function getPwaInstance()
     {
-        return Setting::where('domain', '=', request()->getHttpHost())->first();
+        // return Setting::where('domain', '=', request()->getHttpHost())->first();
+        return Setting::first();
     }
 
     /**

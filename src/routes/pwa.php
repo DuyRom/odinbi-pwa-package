@@ -25,17 +25,5 @@ Route::group(['middleware' => 'web'], function () {
 
 
     });
-
-    // PWA authorisez routes.
-    // Route::group(['prefix' => 'pwa', 'middleware' => 'portals.login.check'], function () {
-    //     Route::get('',[OdinbiPWACustomController::class,'index'])->name('pwa');
-    //     Route::get('store',[OdinbiPWACustomController::class,'store'])->name('pwa.store');
-
-    //     Route::put('store',[OdinbiPWACustomController::class,'update'])->name('pwa.update');
-    //     Route::delete('store',[OdinbiPWACustomController::class,'destroy'])->name('pwa.delete');
-    //     Route::post('activate',[OdinbiPWACustomController::class,'activate'])->name('pwa.activate');
-    //     Route::post('deactivate',[OdinbiPWACustomController::class,'deactivate'])->name('pwa.deactivate');
-
-    // });
 });
 

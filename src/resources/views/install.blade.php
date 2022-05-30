@@ -29,20 +29,15 @@
                       @csrf
                       <button class="btn btn-success mb-3 mt-3" type="submit">Activate PWA</button>
                   </form>
-                  <form method="POST" action="{{ route('pwa.delete') }}" class="d-inline-block float-right">
+                  <!-- <form method="POST" action="{{ route('pwa.delete') }}" class="d-inline-block float-right">
                       @csrf
                       @method('delete')
                       <button class="btn btn-danger mb-3 mt-3" type="submit">Delete PWA</button>
-                  </form>
+                  </form> -->
                   @elseif(isset($pwa->data) && $pwa->status == 1)
                   <form method="POST" action="{{ route('pwa.deactivate') }}" class="d-inline-block">
                       @csrf
                       <button class="btn btn-warning" type="submit">Deactivate PWA</button>
-                  </form>
-                  <form method="POST" action="{{ route('pwa.delete') }}" class="d-inline-block float-right">
-                      @csrf
-                      @method('delete')
-                      <button class="btn btn-danger mb-3 mt-3" type="submit">Delete PWA</button>
                   </form>
                   @endif
                 </div>
@@ -174,7 +169,7 @@
               </div>
           </div>
            <div class="card-footer text-end">
-            <button class="btn btn-primary" type="submit">{{ __('pwa.update') }}</button>
+            <button class="btn btn-primary" type="submit">Cập nhật</button>
           </div>
         </form>
       

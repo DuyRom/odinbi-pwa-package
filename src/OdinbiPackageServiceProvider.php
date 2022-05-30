@@ -13,6 +13,7 @@ class OdinbiPackageServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->loadHelpers();
         $this->registerPublish();
     }
 
@@ -52,13 +53,25 @@ class OdinbiPackageServiceProvider extends ServiceProvider
             // 'pwa.seeds'     => [
             //     __DIR__.'/database/seeds/' => database_path('seeds'),
             // ],
-            'odb.pwa.views'     => [
+            'odb.pwa.views'=> [
                 __DIR__.'/resources/views' => resource_path('views/odinbi/pwa'),
             ],
         ];
 
         foreach ($publishable as $group => $paths) {
             $this->publishes($paths, $group);
+        }
+    }
+
+    /**
+     * Load all helpers.
+     *
+     * @return void
+     */
+    protected function loadHelpers()
+    {
+        foreach (glob(__DIR__.'/Helpers/*.php') as $filename) {
+            require_once $filename;
         }
     }
 }
