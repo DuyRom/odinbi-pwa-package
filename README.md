@@ -13,7 +13,12 @@ It only suppoorts HTTPS and localhost (both HTTP and HTTPS)
 ```
 composer require odinbi/pwa
 ```
+## Config
+```
+-- config/octane.php
+Odinbi\Pwa\OdinbiPackageServiceProvider::class,
 
+```
 
 ## Use: Add below code before closing head tag
 
