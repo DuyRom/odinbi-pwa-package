@@ -16,8 +16,7 @@ composer require odinbi/pwa
 ## Config
 ```
 add OdinbiPackageServiceProvider to config/app
-
- 	Odinbi\Pwa\OdinbiPackageServiceProvider::class,
+-- Odinbi\Pwa\OdinbiPackageServiceProvider::class,
 
 ```
 ## Publish migration
@@ -25,7 +24,12 @@ add OdinbiPackageServiceProvider to config/app
 php artisan vendor:publish --tag="odb.pwa.migrations"
 
 ```
-## Database migration
+## Publish config
+```
+php artisan vendor:publish --tag="odb.pwa.config"
+
+```
+## Database migrate
 ```
 php artisan migrate
 
@@ -33,7 +37,8 @@ php artisan migrate
 
 ## Routes
 ```
-Use link: host/store to create new pwa_setings (Route name: pwa.store)
+Use link: host/pwa/store to create new pwa_setings (Route name: pwa.store)
+Ex: https://odinbi.app/pwa/store
 Run php artisan to show routes list
 
 

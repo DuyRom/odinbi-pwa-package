@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use  Odinbi\Pwa\Http\Controllers\OdinbiPWACustomController;
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => config('odb_pwa.middleware')], function () {
 
     Route::get('/pwa/assets/{path?}',[OdinbiPWACustomController::class,'asset'])
         ->where('path', '(.*)')
