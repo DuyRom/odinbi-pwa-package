@@ -1,0 +1,22 @@
+{
+    "name": "odinbi/pwa",
+    "description": "odinbi pwa package",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Odinbi\\Pwa\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "duynguyen",
+            "email": "duyit192@hotmail.com"
+        }
+    ],
+    "require": {},
+    // "require": {
+    //     "codexshaper/laravel-pwa": "^1.2",
+    // },
+}
