@@ -54,3 +54,16 @@ if (!function_exists('last_icon_src')) {
         return $lastIcon['path'];
     }
 }
+
+
+if (!function_exists('theme_asset')) {
+    /**
+     * Get last icon from manifest set.
+     *
+     * @return string
+     */
+    function theme_asset($file)
+    {
+        echo base_path() .'/vendor/odinbi/pwa/src/resources/assets/css/'.$file;
+    }
+}

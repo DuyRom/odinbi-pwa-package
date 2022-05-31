@@ -20,7 +20,7 @@ class OdinbiPWACustomController extends Controller
     public function index()
     {
         $pwa = $this->getPwaInstance();
-        return view('pwa::install', compact('pwa'));
+        return view('pwa::pwa', compact('pwa'));
     }
 
     /**
