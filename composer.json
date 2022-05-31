@@ -3,6 +3,11 @@
     "description": "odinbi pwa package",
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/DuyRom/odinbi-pwa-package",
+    "support": {
+        "issues": "https://github.com/DuyRom/odinbi-pwa-package/issues",
+        "source": "https://github.com/DuyRom/odinbi-pwa-package"
+    },
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {

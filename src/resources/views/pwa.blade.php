@@ -47,7 +47,7 @@
                        
                     </div>
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="{{request()->getSchemeAndHttpHost()}}" data-toggle="dropdown">
+                        <li class="dropdown dropdown-user nav-item"><a class="nav-link dropdown-user-link" href="{{request()->getSchemeAndHttpHost()}}">
                                 <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">Odinbi</span><span class="user-status">PWA INSTALL</span></div><span><img class="round" src="https://odinbi.com/wp-content/uploads/2022/04/cropped-icon_2-32x32.png" alt="avatar" height="40" width="40"></span>
                             </a>
                         </li>

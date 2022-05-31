@@ -47,15 +47,6 @@ class OdinbiPackageServiceProvider extends ServiceProvider
                 __DIR__.'/resources/assets/' => public_path('odinbi/assets'),
                 __DIR__.'/resources/views' => resource_path('views/odinbi/pwa'),
             ],
-            // 'odb.pwa.migrations'    => [
-            //     __DIR__.'/database/migrations/' => database_path('migrations'),
-            // ],
-            // 'odb.pwa.asset'    => [
-            //     __DIR__.'/resources/assets/' => public_path('odinbi/assets'),
-            // ],
-            // 'odb.pwa.views'=> [
-            //     __DIR__.'/resources/views' => resource_path('views/odinbi/pwa'),
-            // ],
         ];
 
         foreach ($publishable as $group => $paths) {
