@@ -19,14 +19,9 @@ add OdinbiPackageServiceProvider to config/app
 -- Odinbi\Pwa\OdinbiPackageServiceProvider::class,
 
 ```
-## Publish migration
+## Publish config (database, migration, asset, view)
 ```
-php artisan vendor:publish --tag="odb.pwa.migrations"
-
-```
-## Publish config
-```
-php artisan vendor:publish --tag="odb.pwa.config"
+php artisan vendor:publish --tag="odb.pwa"
 
 ```
 ## Database migrate

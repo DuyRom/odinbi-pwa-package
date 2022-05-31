@@ -41,29 +41,27 @@ class OdinbiPackageServiceProvider extends ServiceProvider
     protected function registerPublish()
     {
         $publishable = [
-            'odb.pwa.config'    => [
+            'odb.pwa'    => [
                 __DIR__.'/config/pwa.php' => config_path('odb_pwa.php'),
-            ],
-            'odb.pwa.migrations'    => [
                 __DIR__.'/database/migrations/' => database_path('migrations'),
-            ],
-            'odb.pwa.asset'    => [
                 __DIR__.'/resources/assets/' => public_path('odinbi/assets'),
-            ],
-            // 'pwa.tenant.migrations'    => [
-            //     __DIR__.'/../database/migrations/' => database_path('migrations/tenant'),
-            // ],
-            // 'pwa.seeds'     => [
-            //     __DIR__.'/database/seeds/' => database_path('seeds'),
-            // ],
-            'odb.pwa.views'=> [
                 __DIR__.'/resources/views' => resource_path('views/odinbi/pwa'),
             ],
+            // 'odb.pwa.migrations'    => [
+            //     __DIR__.'/database/migrations/' => database_path('migrations'),
+            // ],
+            // 'odb.pwa.asset'    => [
+            //     __DIR__.'/resources/assets/' => public_path('odinbi/assets'),
+            // ],
+            // 'odb.pwa.views'=> [
+            //     __DIR__.'/resources/views' => resource_path('views/odinbi/pwa'),
+            // ],
         ];
 
         foreach ($publishable as $group => $paths) {
             $this->publishes($paths, $group);
         }
+
     }
 
     /**
