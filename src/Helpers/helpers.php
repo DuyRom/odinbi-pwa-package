@@ -64,6 +64,6 @@ if (!function_exists('theme_asset')) {
      */
     function theme_asset($file)
     {
-        echo base_path() .'/../vendor/odinbi/pwa/src/resources/assets/css/'.$file;
+        echo app('url').'/vendor/odinbi/pwa/src/resources/assets/css/'.$file;
     }
 }
