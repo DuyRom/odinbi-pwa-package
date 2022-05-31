@@ -9,6 +9,7 @@
         "source": "https://github.com/DuyRom/odinbi-pwa-package"
     },
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Odinbi\\Pwa\\": "src/"
