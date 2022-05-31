@@ -47,6 +47,9 @@ class OdinbiPackageServiceProvider extends ServiceProvider
             'odb.pwa.migrations'    => [
                 __DIR__.'/database/migrations/' => database_path('migrations'),
             ],
+            'odb.pwa.asset'    => [
+                __DIR__.'/resources/assets/' => public_path('odinbi/assets'),
+            ],
             // 'pwa.tenant.migrations'    => [
             //     __DIR__.'/../database/migrations/' => database_path('migrations/tenant'),
             // ],
