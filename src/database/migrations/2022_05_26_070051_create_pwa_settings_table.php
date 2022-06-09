@@ -13,7 +13,7 @@ class CreatePwaSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::connection(config('odb_pwa.database.driver'))->create('pwa_settings', function (Blueprint $table) {
+        Schema::connection('mysql')->create('pwa_settings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('domain', 100)->nullable();
             $table->string('tenant_id', 36)->nullable();
