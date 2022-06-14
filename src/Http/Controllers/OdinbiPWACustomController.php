@@ -393,6 +393,9 @@ class OdinbiPWACustomController extends Controller
      * Generate service worker.
      *
      * @return string
+     *  '$base_url/offline',
+            '{$base_url}/css/app.css',
+            '{$base_url}/js/app.js',
      */
     protected function generateServiceWorker()
     {
@@ -403,9 +406,6 @@ class OdinbiPWACustomController extends Controller
         return <<<SERVICE_WORKER
         var staticCacheName = "pwa-v" + new Date().getTime();
         var filesToCache = [
-            '$base_url/offline',
-            '{$base_url}/css/app.css',
-            '{$base_url}/js/app.js',
             '$pwa_asset/images/icons/icon-72x72.png',
             '$pwa_asset/images/icons/icon-96x96.png',
             '$pwa_asset/images/icons/icon-128x128.png',
