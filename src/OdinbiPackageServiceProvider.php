@@ -44,7 +44,7 @@ class OdinbiPackageServiceProvider extends ServiceProvider
             'odb.pwa'    => [
                 __DIR__.'/config/pwa.php' => config_path('odb_pwa.php'),
                 __DIR__.'/database/migrations/' => database_path('migrations'),
-                __DIR__.'/resources/assets/' => public_path('odinbi/assets'),
+                __DIR__.'/resources/assets/' => public_path('pwa/assets'),
                 __DIR__.'/resources/views' => resource_path('views/odinbi/pwa'),
             ],
         ];
