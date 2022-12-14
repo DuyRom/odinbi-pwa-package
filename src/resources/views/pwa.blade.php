@@ -13,16 +13,16 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/odinbi/assets/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="/pwa/assets/css/vendors.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="/odinbi/assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/odinbi/assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/odinbi/assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="/odinbi/assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="/odinbi/assets/css/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="/odinbi/assets/css/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/pwa/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/pwa/assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="/pwa/assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="/pwa/assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="/pwa/assets/css/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/pwa/assets/css/semi-dark-layout.css">
 
 </head>
 <!-- END: Head-->
@@ -223,21 +223,21 @@
 
 
     <!-- BEGIN: Vendor JS-->
-    <script src="/odinbi/assets/js/vendors.min.js"></script>
+    <script src="/pwa/assets/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="/odinbi/assets/js/jquery.sticky.js"></script>
+    <script src="/pwa/assets/js/jquery.sticky.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
-    <script src="/odinbi/assets/js/app-menu.js"></script>
-    <script src="/odinbi/assets/js/app.js"></script>
-    <script src="/odinbi/assets/js/components.js"></script>
+    <script src="/pwa/assets/js/app-menu.js"></script>
+    <script src="/pwa/assets/js/app.js"></script>
+    <script src="/pwa/assets/js/components.js"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="/odinbi/assets/js/form-tooltip-valid.js"></script>
+    <script src="/pwa/assets/js/form-tooltip-valid.js"></script>
     <!-- END: Page JS-->
 </body>
 <!-- END: Body-->
