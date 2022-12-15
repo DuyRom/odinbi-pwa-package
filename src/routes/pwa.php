@@ -15,7 +15,7 @@ Route::group(['middleware' => config('odb_pwa.middleware')], function () {
 
     Route::group(['prefix' => 'pwa'], function () {
         Route::get('manifest',[OdinbiPWACustomController::class,'manifest'])->name('pwa.manifest');
-        Route::get('',[OdinbiPWACustomController::class,'index'])->name('pwa');
+        Route::get('install',[OdinbiPWACustomController::class,'index'])->name('pwa');
         Route::get('store',[OdinbiPWACustomController::class,'store'])->name('pwa.store');
 
         Route::put('store',[OdinbiPWACustomController::class,'update'])->name('pwa.update');
