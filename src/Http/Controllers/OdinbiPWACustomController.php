@@ -43,6 +43,7 @@ class OdinbiPWACustomController extends Controller
         );
 
         $pwa = $this->getPwaInstance();
+        // dd($pwa);
 
         if (!$pwa) {
             $pwa = new Setting();
@@ -124,7 +125,7 @@ class OdinbiPWACustomController extends Controller
         if (isset($request->icons) && count($request->icons) > 0) {
             foreach ($request->icons as $key => $icon) {
                 // $destination_path = 'pwa/images/icons/icon-'.$key.'.png';
-                $destination_path = '/pwa/images/icons/icon-'.$key.'.png';
+                $destination_path = '/pwa/assets/images/icons/icon-'.$key.'.png';
                 Storage::disk('public')->putFileAs('', $icon, $destination_path);
             }
         }
@@ -138,9 +139,9 @@ class OdinbiPWACustomController extends Controller
         }
 
         $pwa = $this->getPwaInstance();
-
         if (!$pwa) {
             $pwa = new Setting();
+            dd($pwa );
         }
 
         $domain = request()->getHttpHost();
@@ -157,7 +158,7 @@ class OdinbiPWACustomController extends Controller
             'theme_color'      => $request->theme_color,
             'display'          => $request->display,
         ]);
-        // dd();
+        // dd($data);
         $data['serviceworker'] = $this->generateServiceWorker();
         $data['register_serviceworker'] = $this->generateServiceWorkerRegister();
 
@@ -303,55 +304,124 @@ class OdinbiPWACustomController extends Controller
                 'status_bar'       => 'black',
                 'icons'            => [
                     '72x72' => [
-                        'path'    => pwa_asset('images/icons/icon-72x72.png'),
+                        'path'    => '/storage/pwa/assets/images/icons/icon-72x72.png',
                         'purpose' => 'any',
                     ],
                     '96x96' => [
-                        'path'    => pwa_asset('images/icons/icon-96x96.png'),
+                        'path'    => '/storage/pwa/assets/images/icons/icon-96x96.png',
                         'purpose' => 'any',
                     ],
                     '128x128' => [
-                        'path'    => pwa_asset('images/icons/icon-128x128.png'),
+                        'path'    => '/storage/pwa/assets/images/icons/icon-128x128.png',
                         'purpose' => 'any',
                     ],
                     '144x144' => [
-                        'path'    => pwa_asset('images/icons/icon-144x144.png'),
+                        'path'    => '/storage/pwa/assets/images/icons/icon-144x144.png',
                         'purpose' => 'any',
                     ],
                     '152x152' => [
-                        'path'    => pwa_asset('images/icons/icon-152x152.png'),
+                        'path'    => '/storage/pwa/assets/images/icons/icon-152x152.png',
                         'purpose' => 'any',
                     ],
                     '192x192' => [
-                        'path'    => pwa_asset('images/icons/icon-192x192.png'),
+                        'path'    => '/storage/pwa/assets/images/icons/icon-192x192.png',
                         'purpose' => 'any',
                     ],
                     '384x384' => [
-                        'path'    => pwa_asset('images/icons/icon-384x384.png'),
+                        'path'    => '/storage/pwa/assets/images/icons/icon-384x384.png',
                         'purpose' => 'any',
                     ],
                     '512x512' => [
-                        'path'    => pwa_asset('images/icons/icon-512x512.png'),
+                        'path'    => '/storage/pwa/assets/images/icons/icon-512x512.png',
                         'purpose' => 'any',
                     ],
                 ],
                 'splash' => [
-                    '640x1136'  => pwa_asset('images/icons/splash-640x1136.png'),
-                    '750x1334'  => pwa_asset('images/icons/splash-750x1334.png'),
-                    '828x1792'  => pwa_asset('images/icons/splash-828x1792.png'),
-                    '1125x2436' => pwa_asset('images/icons/splash-1125x2436.png'),
-                    '1242x2208' => pwa_asset('images/icons/splash-1242x2208.png'),
-                    '1242x2688' => pwa_asset('images/icons/splash-1242x2688.png'),
-                    '1536x2048' => pwa_asset('images/icons/splash-1536x2048.png'),
-                    '1668x2224' => pwa_asset('images/icons/splash-1668x2224.png'),
-                    '1668x2388' => pwa_asset('images/icons/splash-1668x2388.png'),
-                    '2048x2732' => pwa_asset('images/icons/splash-2048x2732.png'),
+                    '640x1136'  => '/storage/pwa/assets/images/icons/splash-640x1136.png',
+                    '750x1334'  => '/storage/pwa/assets/images/icons/splash-750x1334.png',
+                    '828x1792'  => '/storage/pwa/assets/images/icons/splash-828x1792.png',
+                    '1125x2436' => '/storage/pwa/assets/images/icons/splash-1125x2436.png',
+                    '1242x2208' => '/storage/pwa/assets/images/icons/splash-1242x2208.png',
+                    '1242x2688' => '/storage/pwa/assets/images/icons/splash-1242x2688.png',
+                    '1536x2048' => '/storage/pwa/assets/images/icons/splash-1536x2048.png',
+                    '1668x2224' => '/storage/pwa/assets/images/icons/splash-1668x2224.png',
+                    '1668x2388' => '/storage/pwa/assets/images/icons/splash-1668x2388.png',
+                    '2048x2732' => '/storage/pwa/assets/images/icons/splash-2048x2732.png',
                 ],
                 'shortcuts' => [],
                 'custom'    => [],
             ],
         ];
     }
+    
+    // protected function getManifestData($data)
+    // {
+    //     return [
+    //         'name'     => $data['name'],
+    //         'manifest' => [
+    //             'name'             => $data['name'],
+    //             'short_name'       => $data['short_name'],
+    //             'start_url'        => $data['start_url'],
+    //             'background_color' => $data['background_color'],
+    //             'theme_color'      => $data['theme_color'],
+    //             'display'          => $data['display'],
+    //             'orientation'      => 'any',
+    //             'status_bar'       => 'black',
+    //             'icons'            => [
+    //                 // '72x72' => [
+    //                 //     'path'    => pwa_asset('/demo/images/icons/icon-72x72.png'),
+    //                 //     'purpose' => 'any',
+    //                 // ],
+    //                 '72x72' => [
+    //                     'path'    => '/storage/pwa/assets/images/icons/icon-72x72.png',
+    //                     'purpose' => 'any',
+    //                 ],
+    //                 '96x96' => [
+    //                     'path'    => '/storage/pwa/assets/images/icons/icon-96x96.png'),
+    //                     'purpose' => 'any',
+    //                 ],
+    //                 '128x128' => [
+    //                     'path'    => '/storage/pwa/assets/images/icons/icon-128x128.png'),
+    //                     'purpose' => 'any',
+    //                 ],
+    //                 '144x144' => [
+    //                     'path'    => '/storage/pwa/assets/images/icons/icon-144x144.png'),
+    //                     'purpose' => 'any',
+    //                 ],
+    //                 '152x152' => [
+    //                     'path'    => '/storage/pwa/assets/images/icons/icon-152x152.png'),
+    //                     'purpose' => 'any',
+    //                 ],
+    //                 '192x192' => [
+    //                     'path'    => '/storage/pwa/assets/images/icons/icon-192x192.png'),
+    //                     'purpose' => 'any',
+    //                 ],
+    //                 '384x384' => [
+    //                     'path'    => '/storage/pwa/assets/images/icons/icon-384x384.png'),
+    //                     'purpose' => 'any',
+    //                 ],
+    //                 '512x512' => [
+    //                     'path'    => '/storage/pwa/assets/images/icons/icon-512x512.png'),
+    //                     'purpose' => 'any',
+    //                 ],
+    //             ],
+    //             'splash' => [
+    //                 '640x1136'  => '/storage/pwa/assets/images/icons/splash-640x1136.png'),
+    //                 '750x1334'  => '/storage/pwa/assets/images/icons/splash-750x1334.png'),
+    //                 '828x1792'  => '/storage/pwa/assets/images/icons/splash-828x1792.png'),
+    //                 '1125x2436' => '/storage/pwa/assets/images/icons/splash-1125x2436.png'),
+    //                 '1242x2208' => '/storage/pwa/assets/images/icons/splash-1242x2208.png'),
+    //                 '1242x2688' => '/storage/pwa/assets/images/icons/splash-1242x2688.png'),
+    //                 '1536x2048' => '/storage/pwa/assets/images/icons/splash-1536x2048.png'),
+    //                 '1668x2224' => '/storage/pwa/assets/images/icons/splash-1668x2224.png'),
+    //                 '1668x2388' => '/storage/pwa/assets/images/icons/splash-1668x2388.png'),
+    //                 '2048x2732' => '/storage/pwa/assets/images/icons/splash-2048x2732.png'),
+    //             ],
+    //             'shortcuts' => [],
+    //             'custom'    => [],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Return serviceworker.js content.
