@@ -133,7 +133,7 @@ class OdinbiPWACustomController extends Controller
         if (isset($request->splashes) && count($request->splashes)) {
             foreach ($request->splashes as $key => $splash) {
                 // $destination_path = 'pwa/images/icons/splash-'.$key.'.png';
-                $destination_path = '/pwa/images/icons/splash-'.$key.'.png';
+                $destination_path = '/pwa/assets/images/icons/splash-'.$key.'.png';
                 Storage::disk('public')->putFileAs('', $splash, $destination_path);
             }
         }
