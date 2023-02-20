@@ -44,3 +44,5 @@ Run php artisan to show routes list
 ```
 {{ pwa_meta() }}
 ```
+
+## NOTE: You need to do 'php artisan storage:link' to create storage symbolic link
