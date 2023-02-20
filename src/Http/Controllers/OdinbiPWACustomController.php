@@ -157,7 +157,7 @@ class OdinbiPWACustomController extends Controller
             'theme_color'      => $request->theme_color,
             'display'          => $request->display,
         ]);
-        dd();
+        // dd();
         $data['serviceworker'] = $this->generateServiceWorker();
         $data['register_serviceworker'] = $this->generateServiceWorkerRegister();
 
