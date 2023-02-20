@@ -124,7 +124,7 @@ class OdinbiPWACustomController extends Controller
         if (isset($request->icons) && count($request->icons) > 0) {
             foreach ($request->icons as $key => $icon) {
                 // $destination_path = 'pwa/images/icons/icon-'.$key.'.png';
-                $destination_path = 'odinbi/assets/images/icon-'.$key.'.png';
+                $destination_path = '/pwa/images/icons/icon-'.$key.'.png';
                 Storage::disk('public')->putFileAs('', $icon, $destination_path);
             }
         }
@@ -132,7 +132,7 @@ class OdinbiPWACustomController extends Controller
         if (isset($request->splashes) && count($request->splashes)) {
             foreach ($request->splashes as $key => $splash) {
                 // $destination_path = 'pwa/images/icons/splash-'.$key.'.png';
-                $destination_path = 'odinbi/assets/images/splash-'.$key.'.png';
+                $destination_path = '/pwa/images/icons/splash-'.$key.'.png';
                 Storage::disk('public')->putFileAs('', $splash, $destination_path);
             }
         }
