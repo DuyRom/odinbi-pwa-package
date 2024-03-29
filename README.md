@@ -26,7 +26,7 @@ php artisan vendor:publish --tag="odb.pwa"
 ```
 ## Database migrate
 ```
-php artisan migrate
+php artisan migrate || OR php artisan migrate --path=database/migrations/2022_05_26_070051_create_pwa_settings_table.php
 
 ```
 
