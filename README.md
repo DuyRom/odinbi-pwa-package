@@ -13,10 +13,10 @@ It only suppoorts HTTPS and localhost (both HTTP and HTTPS)
 ```
 composer require odinbi/pwa
 ```
-## Config
+## Config  - Add OdinbiPackageServiceProvider to config/app
 ```
-add OdinbiPackageServiceProvider to config/app
--- Odinbi\Pwa\OdinbiPackageServiceProvider::class,
+
+Odinbi\Pwa\OdinbiPackageServiceProvider::class,
 
 ```
 ## Publish config (database, migration, asset, view)
