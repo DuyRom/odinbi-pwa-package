@@ -7,7 +7,7 @@ return [
     'prefix'                => '/pwa',
     'icons_path'			         => storage_path('/vendor/odinbi/pwa/src/resources/icons'),
     'scope'					            => '.',
-    'middleware' => 'web',
+    'middleware' => env('PWA_MIDDLEWARE', 'web'),
     'database' => [
     	'driver' => 'mysql'
     ]
