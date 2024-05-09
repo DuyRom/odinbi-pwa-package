@@ -60,7 +60,7 @@ class OdinbiPWACustomController extends Controller
             'short_name'       =>  config('odb_pwa.short_name', 'PWA App'),
             'start_url'        => 'https://'.$domain.'/',
             'background_color' => '#ffffff',
-            'theme_color'      => '#000000',
+            'theme_color'      => '#ffffff',
             'display'          => 'standalone',
         ]);
 
