@@ -56,8 +56,8 @@ class OdinbiPWACustomController extends Controller
         }
 
         $data = $this->getManifestData([
-            'name'             =>  config('pwa.name', 'PWA App'),
-            'short_name'       =>  config('pwa.short_name', 'PWA App'),
+            'name'             =>  config('odb_pwa.name', 'PWA App'),
+            'short_name'       =>  config('odb_pwa.short_name', 'PWA App'),
             'start_url'        => 'https://'.$domain.'/',
             'background_color' => '#ffffff',
             'theme_color'      => '#000000',
