@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="author" content="DuyRNT">
-    <title>Odinbi PWA Install</title>
+    <title>Odinbi PWA Install - Version 2.0</title>
     <link rel="apple-touch-icon" href="https://odinbi.com/wp-content/uploads/2022/04/cropped-icon_2-32x32.png">
     <link rel="shortcut icon" type="image/x-icon" href="https://odinbi.com/wp-content/uploads/2022/04/cropped-icon_2-32x32.png">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">

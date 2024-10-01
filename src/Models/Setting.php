@@ -9,6 +9,7 @@ class Setting extends Model
     protected $table = 'pwa_settings';
     protected $connection = 'mysql';
     protected $fillable = [
+        'domain',
         'tenant_id',
         'data',
         'status',
