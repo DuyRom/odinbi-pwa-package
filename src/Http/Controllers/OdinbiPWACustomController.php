@@ -122,26 +122,34 @@ class OdinbiPWACustomController extends Controller
             'theme_color'      => 'required',
             'display'          => 'required',
         ]);
+
+        $icons = [];
+        $splashes = [];
+
         if (isset($request->icons) && count($request->icons) > 0) {
             foreach ($request->icons as $key => $icon) {
-                // $destination_path = 'pwa/images/icons/icon-'.$key.'.png';
                 $destination_path = '/pwa/assets/images/icons/icon-'.$key.'.png';
                 Storage::disk('public')->putFileAs('', $icon, $destination_path);
+
+                $icons[$key] = [
+                    'path'    => Storage::url($destination_path),
+                    'purpose' => 'any', 
+                ];
             }
         }
 
         if (isset($request->splashes) && count($request->splashes)) {
             foreach ($request->splashes as $key => $splash) {
-                // $destination_path = 'pwa/images/icons/splash-'.$key.'.png';
                 $destination_path = '/pwa/assets/images/icons/splash-'.$key.'.png';
                 Storage::disk('public')->putFileAs('', $splash, $destination_path);
+
+                $splashes[$key] = Storage::url($destination_path);
             }
         }
 
         $pwa = $this->getPwaInstance();
         if (!$pwa) {
             $pwa = new Setting();
-            dd($pwa );
         }
 
         $domain = request()->getHttpHost();
@@ -150,15 +158,17 @@ class OdinbiPWACustomController extends Controller
             $tenant_id = tenant()->id;
         }
 
-        $data = $this->getManifestData([
+        $data = [
             'name'             => $request->name,
             'short_name'       => $request->short_name,
             'start_url'        => $request->start_url,
             'background_color' => $request->background_color,
             'theme_color'      => $request->theme_color,
             'display'          => $request->display,
-        ]);
-        // dd($data);
+            'icons'            => $icons, 
+            'splash'           => $splashes, 
+        ];
+
         $data['serviceworker'] = $this->generateServiceWorker();
         $data['register_serviceworker'] = $this->generateServiceWorkerRegister();
 
@@ -169,6 +179,7 @@ class OdinbiPWACustomController extends Controller
 
         return redirect(route('pwa'))->with('success', 'Pwa settings updated successfully.');
     }
+
 
     /**
      * Remove the specified resource from storage.
