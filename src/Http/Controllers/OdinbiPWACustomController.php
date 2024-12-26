@@ -186,6 +186,24 @@ class OdinbiPWACustomController extends Controller
             'display'          => 'required',
         ]);
 
+        $icons = [];
+        if ($request->hasFile('icons')) {
+            foreach ($request->file('icons') as $key => $icon) {
+                $originalName = $icon->getClientOriginalName();
+                $path = $icon->storeAs('public/pwa/images/icons', $originalName);
+                $icons[$key] = ['path' => '/storage/pwa/images/icons/' . $originalName];
+            }
+        }
+
+        $splashes = [];
+        if ($request->hasFile('splashes')) {
+            foreach ($request->file('splashes') as $key => $splash) {
+                $originalName = $splash->getClientOriginalName();
+                $path = $splash->storeAs('public/pwa/images/splashes', $originalName);
+                $splashes[$key] = '/storage/pwa/images/splashes/' . $originalName;
+            }
+        }
+
         $data = $this->getManifestData([
             'name'             => $request->name,
             'short_name'       => $request->short_name,
@@ -193,42 +211,15 @@ class OdinbiPWACustomController extends Controller
             'background_color' => $request->background_color,
             'theme_color'      => $request->theme_color,
             'display'          => $request->display,
+            'icons'            => $icons,
+            'splash'           => $splashes,
         ]);
 
-        if (isset($request->icons) && count($request->icons) > 0) {
-            foreach ($request->icons as $key => $icon) {
-                $original_name = $icon->getClientOriginalName();
-                $icon->storeAs('public/pwa/images/icons', $original_name);
-                $data['manifest']['icons'][$key] = [
-                    'path' => '/storage/pwa/images/icons/'.$original_name,
-                    'purpose' => 'any'
-                ];
-    
-            }
-        }
-        
-        if (isset($request->splashes) && count($request->splashes)) {
-            foreach ($request->splashes as $key => $splash) {
-                $original_name = $splash->getClientOriginalName();
-                $splash->storeAs('public/pwa/images/icons', $original_name);
-                $data['manifest']['splash'][$key] = '/storage/pwa/images/icons/'.$original_name;
-            }
-        }
+        $pwa = $this->getPwaInstance() ?? new Setting();
 
-        $pwa = $this->getPwaInstance();
+        $domain = $request->getHttpHost();
+        $tenant_id = function_exists('tenant') && isset(tenant()->id) ? tenant()->id : null;
 
-        if (!$pwa) {
-            $pwa = new Setting();
-        }
-
-        $domain = request()->getHttpHost();
-        $tenant_id = null;
-        if (function_exists('tenant') && isset(tenant()->id)) {
-            $tenant_id = tenant()->id;
-        }
-
-       
-        
         $data['serviceworker'] = $this->generateServiceWorker();
         $data['register_serviceworker'] = $this->generateServiceWorkerRegister();
 
@@ -361,6 +352,23 @@ class OdinbiPWACustomController extends Controller
      */
     protected function getManifestData($data)
     {
+        $icons = [];
+        if (isset($data['icons'])) {
+            foreach ($data['icons'] as $size => $icon) {
+                $icons[$size] = [
+                    'path'    => $icon['path'],
+                    'purpose' => 'any',
+                ];
+            }
+        }
+
+        $splash = [];
+        if (isset($data['splash'])) {
+            foreach ($data['splash'] as $size => $path) {
+                $splash[$size] = $path;
+            }
+        }
+
         return [
             'name'     => $data['name'],
             'manifest' => [
@@ -372,57 +380,14 @@ class OdinbiPWACustomController extends Controller
                 'display'          => $data['display'],
                 'orientation'      => 'any',
                 'status_bar'       => 'black',
-                'icons'            => [
-                    '72x72' => [
-                        'path'    => '/pwa/assets/images/icons/icon-72x72.png',
-                        'purpose' => 'any',
-                    ],
-                    '96x96' => [
-                        'path'    => '/pwa/assets/images/icons/icon-96x96.png',
-                        'purpose' => 'any',
-                    ],
-                    '128x128' => [
-                        'path'    => '/pwa/assets/images/icons/icon-128x128.png',
-                        'purpose' => 'any',
-                    ],
-                    '144x144' => [
-                        'path'    => '/pwa/assets/images/icons/icon-144x144.png',
-                        'purpose' => 'any',
-                    ],
-                    '152x152' => [
-                        'path'    => '/pwa/assets/images/icons/icon-152x152.png',
-                        'purpose' => 'any',
-                    ],
-                    '192x192' => [
-                        'path'    => '/pwa/assets/images/icons/icon-192x192.png',
-                        'purpose' => 'any',
-                    ],
-                    '384x384' => [
-                        'path'    => '/pwa/assets/images/icons/icon-384x384.png',
-                        'purpose' => 'any',
-                    ],
-                    '512x512' => [
-                        'path'    => '/pwa/assets/images/icons/icon-512x512.png',
-                        'purpose' => 'any',
-                    ],
-                ],
-                'splash' => [
-                    '640x1136'  => '/pwa/assets/images/icons/splash-640x1136.png',
-                    '750x1334'  => '/pwa/assets/images/icons/splash-750x1334.png',
-                    '828x1792'  => '/pwa/assets/images/icons/splash-828x1792.png',
-                    '1125x2436' => '/pwa/assets/images/icons/splash-1125x2436.png',
-                    '1242x2208' => '/pwa/assets/images/icons/splash-1242x2208.png',
-                    '1242x2688' => '/pwa/assets/images/icons/splash-1242x2688.png',
-                    '1536x2048' => '/pwa/assets/images/icons/splash-1536x2048.png',
-                    '1668x2224' => '/pwa/assets/images/icons/splash-1668x2224.png',
-                    '1668x2388' => '/pwa/assets/images/icons/splash-1668x2388.png',
-                    '2048x2732' => '/pwa/assets/images/icons/splash-2048x2732.png',
-                ],
-                'shortcuts' => [],
-                'custom'    => [],
+                'icons'            => $icons,
+                'splash'           => $splash,
+                'shortcuts'        => [],
+                'custom'           => [],
             ],
         ];
     }
+
     
     /**
      * Return serviceworker.js content.
